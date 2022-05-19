@@ -3,18 +3,17 @@ const app = express();
 
 const port = 3000;
 
+let  users = [
+    { id: 1, name: "Thành"},
+    { id: 2, name: "Hoàng"}
+]
+
 app.set("view engine", "ejs");
 app.set("views", "./views");
-
-const user = {
-    firstName: "Nguyen",
-    lastName: "Thanh",
-};
-app.get("/", (req, res) => {
-    res.render("pages/index.ejs", {
-        user: user,
+    
+app.get("/users", (req, res) => {
+    res.render("pages/users", {
+        users: users
     });
 });
-app.listen(port, () => {
-  console.log(`App listening at port ${port}`)
-});
+app.listen(port, () => console.log(`App listening at port ${port}`));
