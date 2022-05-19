@@ -1,0 +1,33 @@
+{
+  "name": "nodejs_training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThanhHolmes/nodejs_project.git"
+  },
+  "keywords": [
+    "nodejs",
+    "first",
+    "project"
+  ],
+  "author": "thanh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThanhHolmes/nodejs_project/issues"
+  },
+  "homepage": "https://github.com/ThanhHolmes/nodejs_project#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.16"
+  }
+}
