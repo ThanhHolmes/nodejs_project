@@ -1,6 +1,14 @@
-<% for (let i of users) {%>
-    <p>
-        <%=users.name%>
-    </p>
-<%}%>
-   
+ <h1> USERS </h1>
+ <form action="/users/search" method="get">
+  <label for = "name"> Search Name: </label> </br>
+  <input type = "text" name ="q"> </br>
+  <input type="submit" value="Submit">
+</form>
+<% for (let i of users) { %>
+    <ul>
+        <li>
+            <%= i.name %>
+        </li>
+    </ul>    
+<% } %>
+    
