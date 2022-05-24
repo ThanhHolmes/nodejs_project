@@ -1,9 +1,11 @@
- <h1> USERS </h1>
- <form action="/users/search" method="get">
+<h1> USERS </h1>
+
+<form action = "/users/search" method="get">
   <label for = "name"> Search Name: </label> </br>
   <input type = "text" name ="q"> </br>
-  <input type="submit" value="Submit">
+  <input type = "submit" value= "Submit">
 </form>
+
 <% for (let i of users) { %>
     <ul>
         <li>
@@ -11,4 +13,6 @@
         </li>
     </ul>    
 <% } %>
+
+<button><a href="/users/create" style="text-decoration: none; color: black">Add New User</a></button>
     
