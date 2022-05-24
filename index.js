@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const usersRoutes = require("./routes/users.route");
 
 const port = 3000;
 
@@ -14,39 +15,7 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-let  users = [
-    { id: 1, name: "Thanh"},
-    { id: 2, name: "Hoang"},
-    { id: 3, name: "Sa Lem"},
-    { id: 4, name: "Chung"}
-];
-    
-    
-app.get("/users", (req, res) => {
-    res.render("pages/users", {
-        users: users
-    });
-});
-
-// Using Query Parameters
-app.get("/users/search", (req, res) => {
-    let q = req.query.q;
-    let matchedUsers = users.filter((user) => {
-       return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
-    });
-    res.render("pages/users", {
-        users: matchedUsers
-    });
-});
-
-// Using POST methods
-app.get("/users/create", (req, res) => {
-    res.render("pages/create");
-});
-
-app.post("/users/create", (req, res) => {
-    users.push(req.body);
-    res.redirect("/users")
-});
+// Route init
+app.use("/users", usersRoutes);
 
 app.listen(port, () => console.log(`App listening at port ${port}`));
