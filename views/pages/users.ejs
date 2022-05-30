@@ -1,18 +1,18 @@
 <h1> USERS </h1>
 
-<form action = "/users/search" method="get">
+<form style="color: black ;"  action = "/users/search" method="get">
   <label for = "name"> Search Name: </label> </br>
   <input type = "text" name ="q"> </br>
   <input type = "submit" value= "Submit">
 </form>
 
-<% for (let i of users) { %>
+<% for (let i = 0; i <  usersData; i++) { %>
     <ul>
         <li>
-            <%= i.name %>
+            <%= userData[i].fullName%>
         </li>
     </ul>    
 <% } %>
 
+ 
 <button><a href="/users/create" style="text-decoration: none; color: black">Add New User</a></button>
-    
