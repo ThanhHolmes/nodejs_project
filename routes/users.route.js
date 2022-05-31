@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/users.controller');
 
-router.get('/', usersController.index);
+router.get('/', usersController.showData);
 
-// Using Query Parameters
-router.get('/search', usersController.search);
 
-// Using POST methods
-router.get('/create', usersController.getCreate);
+router.get('/search', usersController.searchData);
 
-router.post('/create', usersController.postCreate);
+// // Using POST methods
+// router.get('/create', usersController.getCreate);
 
-module.exports = router;
+// router.post('/create', usersController.postCreate);
+
+module.exports = router; 
