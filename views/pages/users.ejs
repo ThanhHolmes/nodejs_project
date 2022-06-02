@@ -2,38 +2,67 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport">
     <title>NodeJS-CRUD</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
 
   <body>
-    <h1>USER LIST</h1>
-    <form style="color: black ;"  action = "/users/search" method="get">
-        <label for = "name"> Search Name: </label> </br>
-        <input type = "text" name ="q"> </br>
-        <input type = "submit" value= "Submit">
-    </form>
-    
-    <table class="table">
-    <thead>
-        <tr>
-        <th scope="col">UserID</th>
-        <th scope="col">FullName</th>
-        <th scope="col">Mail</th>
-        </tr>
-    </thead>
-    
+    <h2>USER LIST</h2>
+    <div class="row">
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <td>UserID</td>
+            <td>FullName</td>
+            <td>Mail</td>
+            <td>Actions</td>
+          </tr>
+        </thead>
         <tbody>
-            <% for (let i = 0; i < data.length; i++) { %>
-                <tr>
-                    <th scope="row"><%= data[i].UserID %></th>
-                        <td><%= data[i].FullName %></td>
-                        <td><%= data[i].Mail %></td>
-                </tr>
-                <% } %>
+          <% if (data) { %>
+            <% for(var i = 0; i < data.length; i++) { %>
+              <tr>
+                <td><%= data[i].UserID %></td>
+                <td><%= data[i].FullName %></td>
+                <td><%= data[i].Mail %></td>
+                <td>
+                  <a href="/update/<%= data[i].UserID%>" class="btn btn-info">UPDATE</a>
+                  <a href="/delete/<%= data[i].UserID %>" class="btn btn-danger">DELETE</a>
+                </td>
+              </tr>
+            <% } %>
+          <% } %>
         </tbody>
-    </table>
+      </table>
+    </div>
+
+    <div class="col-md-5">
+      <div class="card-body">
+          <h2>CREATE NEW USER</h2>
+          <form action="/add" method="POST">
+              <div class="form-group">
+                  <input type="text" name="UserID" placeholder="ID" class="form-control" autofocus>
+              </div>
+
+              <div class="form-group">
+                  <input type="text" name="FullName" placeholder="FullName" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <input type="text" name="Mail" placeholder="Email" class="form-control">
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top: 10px">
+                  SAVE USER
+              </button>
+          </form>
+      </div>
+    </div>
+
+    <%- include ('./search') %>
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>

@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const PORT = process.env.PORT;
 const morgan = require('morgan');
 const usersRoutes = require('./routes/users.route');
 
@@ -18,6 +19,6 @@ app.use(
 // Route init
 app.use('/', usersRoutes);
 
-app.listen(process.env.PORT, () =>
-    console.log('App listening at port', process.env.PORT)
-);
+app.listen(PORT, () => {
+    console.log('App listening at port', PORT);
+});

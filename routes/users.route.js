@@ -4,12 +4,14 @@ const usersController = require('../controllers/users.controller');
 
 router.get('/', usersController.showData);
 
-
 router.get('/search', usersController.searchData);
 
-// // Using POST methods
-// router.get('/create', usersController.getCreate);
+router.post('/add', usersController.addData);
 
-// router.post('/create', usersController.postCreate);
+router.get('/update/:id', usersController.editData);
 
-module.exports = router; 
+router.post('/update/:id', usersController.updateData);
+
+router.get('/delete/:id', usersController.deleteData);
+
+module.exports = router;

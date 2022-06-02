@@ -7,8 +7,6 @@ const connect_db = mysql.createConnection({
     password: process.env.DB_PASSWORD,
 });
 
-
-
 connect_db.connect((err) => {
     if (err) {
         console.log('Connection to database failed');
@@ -16,11 +14,5 @@ connect_db.connect((err) => {
     }
     console.log('MySQL Connected!');
 });
-
-// let sql = 'SELECT * FROM users';
-// connect_db.query(sql, (err, result) => {
-//     if (err) throw err;
-//     console.log(result[0]);
-// });
 
 module.exports = connect_db;
