@@ -63,12 +63,12 @@ usersController.updateData = (req, res) => {
     );
 };
 
-usersController.deleteData = (res, req) => {
+usersController.deleteData = (req, res) => {
     const { id } = req.params;
     connect_db.query(
         'DELETE FROM user_list WHERE UserID = ?',
         [id],
-        (err, results) => {
+        (err) => {
             if (err) throw err;
             res.redirect('/');
         }
