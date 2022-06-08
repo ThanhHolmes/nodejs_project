@@ -1,0 +1,36 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "demo nodejs project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --inspect server.js",
+    "nice": "prettier --single-quote --trailing-comma all --write '**/*.{js,json,ejs}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThanhHolmes/nodejs_project.git"
+  },
+  "keywords": [
+    "demo",
+    "nodejs"
+  ],
+  "author": "thanhnv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThanhHolmes/nodejs_project/issues"
+  },
+  "homepage": "https://github.com/ThanhHolmes/nodejs_project#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.0-beta1",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "prettier": "2.6.2"
+  }
+}
