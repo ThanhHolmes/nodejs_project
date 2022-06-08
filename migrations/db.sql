@@ -21,3 +21,4 @@ INSERT INTO `classesDB`.`classes` (`id`, `classcode`, `classname`) VALUES ('1', 
 INSERT INTO `classesDB`.`classes` (`id`, `classcode`, `classname`) VALUES ('2', 'LIVT2', 'Liverpool');
 INSERT INTO `classesDB`.`classes` (`id`, `classcode`, `classname`) VALUES ('3', 'BDMT4', 'Borussia Dortmund');
 INSERT INTO `classesDB`.`classes` (`id`, `classcode`, `classname`) VALUES ('4', 'ACMT4', 'AC Milan');
+
