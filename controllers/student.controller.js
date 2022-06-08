@@ -44,10 +44,11 @@ studentController.updateClass = (req, res) => {
     }
 };
 
-studentController.deleteClass = (res, req) => {
+studentController.deleteClass = (req, res) => {
     const {id} = req.params;
+    console.log(id);
     try {
-        connectDB.query('DELETE FROM students WHERE id = {classes.id}', (err) => {
+        connectDB.query('DELETE FROM students WHERE students.id = classes.id', (err) => {
             if (err) throw err;
             connectDB.query('DELETE FROM classes WHERE id = ?', [id], (err) => {
             if (err) throw err;
