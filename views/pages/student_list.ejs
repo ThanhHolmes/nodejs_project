@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <h2 style="margin-left: 30px">Student List</h2>
+    <table class="table table-dark table-striped" style="width: 650px; margin-left: 30px">
+        <thead>
+            <tr>
+            <th scope="col">ClassID</th>
+            <th scope="col" style="width: 250px">FullName</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach((item) => { %>
+                <tr>
+                    <td><%= item.class_id %></td>
+                    <td><%= item.fullname %></td>
+                    <td><%= item.age %></td>
+                    <td><%= item.gender %></td>
+                    <td>
+                        <a href="/update/<%= item.id %>" class="btn btn-success">UPDATE</a>
+                        <a href="/delete/<%= item.id %>" class="btn btn-danger" style ="margin-left: 10px">DELETE</a>
+                    </td>
+                </tr>
+            <% }) %> 
+        </tbody>
+    </table>
+
+    <h2 style="margin-left: 38px">EDIT AND UPDATE CLASS</h2>
+    <form 
+        action="/student/addstudent"<%= data.id %>" method="POST"
+        class="row g-3 needs-validation" style="width: 500px; margin-left: 30px" novalidate>
+        <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">ClassCode</label>
+            <input type="text" class="form-control" name="classcode" value="<%= data.classcode %>" required>
+            <div class="valid-feedback">
+            Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">ClassName</label>
+            <input type="text" class="form-control" name="classname" value="<%= data.classname %>" required>
+            <div class="valid-feedback">
+            Looks good!
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-success" type="submit">Submit Edit & Update</button>
+        </div>
+    </form>  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>

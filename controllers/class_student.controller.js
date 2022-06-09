@@ -1,13 +1,14 @@
 require('dotenv').config();
 const connectDB = require('../utils/connectdb');
+const classController = {};
 const studentController = {};
 
-studentController.showClasses = (req, res) => {
+// Show Class
+classController.showClasses = (req, res) => {
   const sql = 'SELECT * FROM classes';
   try {
     connectDB.query(sql, (err, results) => {
       if (err) throw err;
-      console.log(results);
       res.render('pages/classes', {
         data: results,
       });
@@ -17,7 +18,8 @@ studentController.showClasses = (req, res) => {
   }
 };
 
-studentController.editClass = (req, res) => {
+// Edit Class
+classController.editClass = (req, res) => {
   const { id } = req.params;
   try {
     connectDB.query(
@@ -35,7 +37,7 @@ studentController.editClass = (req, res) => {
   }
 };
 
-studentController.updateClass = (req, res) => {
+classController.updateClass = (req, res) => {
   const { id } = req.params;
   const newClass = req.body;
   try {
@@ -52,9 +54,9 @@ studentController.updateClass = (req, res) => {
   }
 };
 
-studentController.deleteClass = (req, res) => {
+// Delete Class
+classController.deleteClass = (req, res) => {
   const { id } = req.params;
-  console.log(id);
   try {
     connectDB.query('DELETE FROM students WHERE class_id = ?', [id], (err) => {
       if (err) throw err;
@@ -68,4 +70,23 @@ studentController.deleteClass = (req, res) => {
   }
 };
 
-module.exports = studentController;
+// Show List Student
+classController.showStudentList = (req, res) => {
+  const {id} = req.params;
+  const sql = 'SELECT s.class_id, s.fullname, s.age, s.gender FROM students AS s INNER JOIN classes ON s.class_id = classes.id WHERE classes.id = ?';
+  try {
+    connectDB.query(sql,[id], (err, results) => {
+      if (err) throw err;
+      res.render('pages/student_list.ejs', {
+        data: results
+      })
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+// Add new student
+
+module.exports = classController;
+// module.exports = studentController;
