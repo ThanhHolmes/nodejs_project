@@ -3,8 +3,8 @@ const connectDB = require('../utils/connectdb');
 const classController = {};
 const studentController = {};
 
-// Show Class
-classController.showClasses = (req, res) => {
+// Show Class List
+classController.showClass = (req, res) => {
   const sql = 'SELECT * FROM classes';
   try {
     connectDB.query(sql, (err, results) => {
@@ -72,21 +72,19 @@ classController.deleteClass = (req, res) => {
 
 // Show List Student
 classController.showStudentList = (req, res) => {
-  const {id} = req.params;
-  const sql = 'SELECT s.class_id, s.fullname, s.age, s.gender FROM students AS s INNER JOIN classes ON s.class_id = classes.id WHERE classes.id = ?';
+  const { id } = req.params;
+  const sql =
+    'SELECT s.class_id, s.fullname, s.age, s.gender FROM students AS s INNER JOIN classes ON s.class_id = classes.id WHERE classes.id = ?';
   try {
-    connectDB.query(sql,[id], (err, results) => {
+    connectDB.query(sql, [id], (err, results) => {
       if (err) throw err;
       res.render('pages/student_list.ejs', {
-        data: results
-      })
+        data: results,
+      });
     });
   } catch (error) {
     res.status(500).send(error);
   }
 };
 
-// Add new student
-
 module.exports = classController;
-// module.exports = studentController;
