@@ -35,28 +35,44 @@
         </tbody>
     </table>
 
-    <h2 style="margin-left: 38px">EDIT AND UPDATE CLASS</h2>
+    <h2 style="margin-left: 38px">ADD NEW STUDENT</h2>
     <form 
-        action="/student/addstudent"<%= data.id %>" method="POST"
+        action="/add_student" method="POST"
         class="row g-3 needs-validation" style="width: 500px; margin-left: 30px" novalidate>
-        <div class="col-md-4">
-            <label for="validationCustom01" class="form-label">ClassCode</label>
-            <input type="text" class="form-control" name="classcode" value="<%= data.classcode %>" required>
+        <div class="col-md-6">
+            <label for="validationCustom01" class="form-label">FullName</label>
+            <input type="text" class="form-control" name="fullname" value="<%= data.fullname %>" required>
             <div class="valid-feedback">
             Looks good!
             </div>
         </div>
 
-        <div class="col-md-4">
-            <label for="validationCustom02" class="form-label">ClassName</label>
-            <input type="text" class="form-control" name="classname" value="<%= data.classname %>" required>
+        <div class="col-md-2">
+            <label for="validationCustom02" class="form-label">Age</label>
+            <input type="text" class="form-control" name="age" value="<%= data.age %>" required>
+            <div class="valid-feedback">
+            Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <label for="validationCustom02" class="form-label">Gender</label>
+            <input type="text" class="form-control" name="gender" value="<%= data.gender%>" required>
+            <div class="valid-feedback">
+            Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <label for="validationCustom02" class="form-label">ClassID</label>
+            <input type="text" class="form-control" name="class_id" value="<%= data.class_id%>" required>
             <div class="valid-feedback">
             Looks good!
             </div>
         </div>
 
         <div class="col-12">
-            <button class="btn btn-success" type="submit">Submit Edit & Update</button>
+            <button class="btn btn-success" type="submit">CONFIRM</button>
         </div>
     </form>  
 

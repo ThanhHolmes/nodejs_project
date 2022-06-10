@@ -1,7 +1,6 @@
 require('dotenv').config();
 const connectDB = require('../utils/connectdb');
 const classController = {};
-const studentController = {};
 
 // Show Class List
 classController.showClass = (req, res) => {
@@ -46,7 +45,7 @@ classController.updateClass = (req, res) => {
       [newClass, id],
       (err) => {
         if (err) throw err;
-        res.redirect('/');
+        res.redirect('/classes');
       },
     );
   } catch (error) {
@@ -62,7 +61,7 @@ classController.deleteClass = (req, res) => {
       if (err) throw err;
       connectDB.query('DELETE FROM classes WHERE id = ?', [id], (err) => {
         if (err) throw err;
-        res.redirect('/');
+        res.redirect('/classes');
       });
     });
   } catch (error) {
@@ -78,7 +77,7 @@ classController.showStudentList = (req, res) => {
   try {
     connectDB.query(sql, [id], (err, results) => {
       if (err) throw err;
-      res.render('pages/student_list.ejs', {
+      res.render('pages/student_list', {
         data: results,
       });
     });

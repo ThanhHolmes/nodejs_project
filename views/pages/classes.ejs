@@ -26,14 +26,14 @@
                   <td><%= item.id %></td>
                   <td><%= item.classcode %></td>
                   <td>
-                    <a href="/students/<%= item.id %>" onMouseOver="this.style.color='gray'" onMouseOut="this.style.color='black'"
+                    <a href="/classes/<%= item.id %>/students" onMouseOver="this.style.color='gray'" onMouseOut="this.style.color='black'"
                     style="color: black; text-decoration: none">
                       <%= item.classname %>
                     </a>
                   </td>
                   <td>
-                      <a href="/update/<%= item.id %>" class="btn btn-success">UPDATE</a>
-                      <a href="/delete/<%= item.id %>" class="btn btn-danger" style ="margin-left: 10px">DELETE</a>
+                      <a href="/classes/<%= item.id %>/edit" class="btn btn-success">UPDATE</a>
+                      <a href="/classes/<%= item.id %>/delete" class="btn btn-danger" style ="margin-left: 10px">DELETE</a>
                   </td>
                 </tr>
             <% }) %> 
