@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const classController = require('../controllers/class_student.controller');
-const studentController = require('../controllers/class_student.controller');
+const classController = require('../controllers/class.controller');
+const studentController = require('../controllers/student.controller');
 
-router.get('/', classController.showClasses);
+router.get('/', classController.showClass);
 
 router.get('/update/:id', classController.editClass);
 
@@ -13,6 +13,6 @@ router.get('/delete/:id', classController.deleteClass);
 
 router.get('/students/:id', classController.showStudentList);
 
-// router.post('/students/addstudent', studentController.addData);
+router.post('/students/addstudent', studentController.addData);
 
 module.exports = router;
