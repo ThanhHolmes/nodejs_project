@@ -40,3 +40,9 @@ INSERT INTO `classesDB`.`students` (`fullname`, `age`, `gender`, `class_id`) VAL
 
 INSERT INTO `classesDB`.`classes` (`classcode`, `classname`) VALUES ('INTE9', 'InterMilan');
 INSERT INTO `classesDB`.`students` (`fullname`, `age`, `gender`, `class_id`) VALUES ('Aturo Vidal', '32', 'Male', '9');
+
+INSERT INTO `classesDB`.`classes` (`id`, `classcode`, `classname`) VALUES ('1', 'FCB', 'Barcelona');
+INSERT INTO `classesDB`.`classes` (`classcode`, `classname`) VALUES ('BDM', 'Borussia Dortmund');
+INSERT INTO `classesDB`.`classes` (`classcode`, `classname`) VALUES ('PSG', 'Paris Saint Germain');
+INSERT INTO `classesDB`.`classes` (`classcode`, `classname`) VALUES ('LIVFC', 'Liverpool');
+INSERT INTO `classesDB`.`classes` (`classcode`, `classname`) VALUES ('CHEL', 'Chelsea');

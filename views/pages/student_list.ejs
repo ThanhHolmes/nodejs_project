@@ -37,7 +37,7 @@
 
     <h2 style="margin-left: 38px">ADD NEW STUDENT</h2>
     <form 
-        action="/add_student" method="POST"
+        action="/student/add" method="POST"
         class="row g-3 needs-validation" style="width: 500px; margin-left: 30px" novalidate>
         <div class="col-md-6">
             <label for="validationCustom01" class="form-label">FullName</label>
@@ -57,20 +57,19 @@
 
         <div class="col-md-2">
             <label for="validationCustom02" class="form-label">Gender</label>
-            <input type="text" class="form-control" name="gender" value="<%= data.gender%>" required>
+            <input type="text" class="form-control" name="gender" value="<%= data.gender %>" required>
             <div class="valid-feedback">
             Looks good!
             </div>
         </div>
 
         <div class="col-md-2">
-            <label for="validationCustom02" class="form-label">ClassID</label>
-            <input type="text" class="form-control" name="class_id" value="<%= data.class_id%>" required>
+            <input type="hidden" class="form-control" name="class_id" value="<%= data.class_id %>" readonly>
             <div class="valid-feedback">
             Looks good!
             </div>
         </div>
-
+        <%= console.log(class_id) %>
         <div class="col-12">
             <button class="btn btn-success" type="submit">CONFIRM</button>
         </div>

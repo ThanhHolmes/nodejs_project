@@ -22,5 +22,5 @@ app.use('/', classRoutes);
 app.use('/', studentRoutes);
 
 app.listen(PORT, () => {
-  console.log('App listening at port', PORT);
+  console.log(`App listening at port ${PORT}`);
 });
