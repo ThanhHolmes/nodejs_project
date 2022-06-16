@@ -37,3 +37,6 @@ INSERT INTO `classesDB`.`students` (`fullname`, `age`, `gender`, `class_id`) VAL
 INSERT INTO `classesDB`.`students` (`fullname`, `age`, `gender`, `class_id`) VALUES ('Sena Lux', '22', 'Female', '1');
 INSERT INTO `classesDB`.`students` (`fullname`, `age`, `gender`, `class_id`) VALUES ('Annie Nguyen', '25', 'Female', '4');
 INSERT INTO `classesDB`.`students` (`fullname`, `age`, `gender`, `class_id`) VALUES ('Ring', '21', 'Female', '3');
+
+INSERT INTO `classesDB`.`classes` (`classcode`, `classname`) VALUES ('INTE9', 'InterMilan');
+INSERT INTO `classesDB`.`students` (`fullname`, `age`, `gender`, `class_id`) VALUES ('Aturo Vidal', '32', 'Male', '9');

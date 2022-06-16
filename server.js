@@ -2,18 +2,24 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const class_studentRoutes = require('./routes/class_student.route');
+const classRoutes = require('./routes/class.route');
+const studentRoutes = require('./routes/student.route');
 
+//Set EJS View
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+//Set req.body
 app.use(
   express.urlencoded({
     extended: true,
   }),
 );
 
-app.use('/', class_studentRoutes); // Route init
+//Route Init
+app.use('/', classRoutes);
+
+app.use('/', studentRoutes);
 
 app.listen(PORT, () => {
   console.log('App listening at port', PORT);
