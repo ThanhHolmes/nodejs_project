@@ -20,6 +20,7 @@ classController.showClass = (req, res) => {
 // Edit Class
 classController.editClass = (req, res) => {
   const { id } = req.params;
+  console.log(id);//abc
   try {
     connectDB.query(
       'SELECT * FROM classes WHERE id = ?',
@@ -78,7 +79,7 @@ classController.showStudentList = (req, res) => {
     connectDB.query(sql, [id], (err, results) => {
       if (err) throw err;
       res.render('pages/student_list', {
-        data: results,
+        data: results, class_id: id
       });
     });
   } catch (error) {
