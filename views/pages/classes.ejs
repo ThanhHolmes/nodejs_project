@@ -9,19 +9,20 @@
 
   <body>
       <h2 style="margin-left: 30px">Class  List</h2>
-      <table class="table table-success table-striped" style="width: 600px; margin-left: 30px">
+      <table class="table table-success table-striped" style="width: 800px; margin-left: 30px">
       
         <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">ClassCode</th>
             <th scope="col">ClassName</th>
+            <th scope="col">NumberOfStudents</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
 
         <tbody>
-            <% data.forEach((item) => { %>
+            <% data.forEach((item) => { %> 
                 <tr>
                   <td><%= item.id %></td>
                   <td><%= item.classcode %></td>
@@ -30,8 +31,9 @@
                     style="color: black; text-decoration: none">
                       <%= item.classname %>
                     </a>
-                  </td>
-                  <td>
+                  </td> 
+                  <td><%= item.count %></td>
+                   <td>
                       <a href="/classes/<%= item.id %>/edit" class="btn btn-success">UPDATE</a>
                       <a href="/classes/<%= item.id %>/delete" class="btn btn-danger" style ="margin-left: 10px">DELETE</a>
                   </td>
