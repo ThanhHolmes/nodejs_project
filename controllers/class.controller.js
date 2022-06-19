@@ -5,28 +5,23 @@ const classController = {};
 
 // Show Class List
 classController.showClass = (req, res) => {
-    console.log('classController.showClass');
     try {
         connectDB.query('SELECT * FROM classes', (err, classData) => {
             if (err) throw err;
-            console.log('a', classData);
             connectDB.query(
                 'SELECT class_id, COUNT(id) AS numberofstudents FROM students GROUP BY class_id',
-                (err, countStudents) => {
+                (err, numStudents) => {
                     if (err) throw err;
-                    console.log('b', countStudents);
                     const results = [];
-                    for (let item of classData) {
-                        const countStudent = countStudents.find(
-                            (i) => (i.class_id = item.id),
-                        );
-                        item.count = countStudent.numberofstudents;
-                        results.push({
-                            ...item,
-                            count: countStudent.numberofstudents,
-                        });
-                    }
-                    console.log(results);
+                    classData.forEach((element, i) => {
+                        itemClassData = numStudents[i].numberofstudents;
+                        newItemData = {
+                            ...classData[i],
+                            quantity: itemClassData,
+                        };
+                        results.push(newItemData);
+                    });
+                    // console.log(results);
                     res.render('pages/classes', {
                         data: results,
                     });
@@ -37,7 +32,6 @@ classController.showClass = (req, res) => {
         res.status(500).send(error);
     }
 };
-
 // Edit Class
 classController.editClass = (req, res) => {
     const { id } = req.params;
@@ -47,7 +41,7 @@ classController.editClass = (req, res) => {
             [id],
             (err, results) => {
                 if (err) throw err;
-                res.render('pages/class_edit', {
+                res.render('pages/class_update', {
                     data: results[0],
                 });
             },
@@ -101,9 +95,8 @@ classController.deleteClass = (req, res) => {
 // Show List Student
 classController.showStudentList = (req, res) => {
     const { id } = req.params;
-    // const sql2 = 'SELECT COUNT(*) FROM students WHERE class_id = ?';
     const sql =
-        'SELECT s.class_id, s.fullname, s.age, s.gender FROM students AS s INNER JOIN classes ON s.class_id = classes.id WHERE classes.id = ?';
+        'SELECT s.class_id, s.fullname, s.age, s.gender, s.id FROM students AS s INNER JOIN classes ON s.class_id = classes.id WHERE classes.id = ?';
     try {
         connectDB.query(sql, [id], (err, results) => {
             if (err) throw err;
