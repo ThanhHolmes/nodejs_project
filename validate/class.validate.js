@@ -1,15 +1,11 @@
-const classValidate = {};
-
-classValidate.updateClass = (req, res, next) => {
-    if (req.body.classcode) {
-        return next();
-    }
-    res.status(403).json({ Message: 'Classcode is required' });
-
-    if (req.body.classname) {
-        return next();
-    }
-    res.status(402).json({ Message: 'Classname is required' });
+const updateClass = (req, res, next) => {
+    const {classcode, classname} = req.body;
+    if (!classcode || !classname) {
+        return res.status(400).json({Message: "Classcode and classname is require"});
+    };
+    next();
 };
 
-module.exports = classValidate;
+module.exports = {
+    updateClass,
+}

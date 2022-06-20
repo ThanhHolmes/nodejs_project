@@ -1,19 +1,10 @@
-const studentValidate = {};
-
-studentValidate.addData = (req, res, next) => {
-    if (req.body.fullname) {
-        return next();
-    } else {
-        res.status(403).json({ Message: 'Fullname is required' });
+const addData = (req, res, next) => {
+    const {fullname, age} = req.body;
+    if (!fullname || !age || (age < 15)) {
+        return res.status(400).json({Message: "Fullname & Age is required and Age must be more than 15 years old"})
     };
+    next();
 };
-
-studentValidate.addData = (req, res, next) => {
-    if (req.body.age > 15) {
-        return next();
-    } else {
-        res.status(403).json({ Message: 'Age must be more than 15 years old' });
-    };
-};
-
-module.exports = studentValidate;
+module.exports = {
+    addData,
+}

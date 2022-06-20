@@ -27,7 +27,7 @@ classController.showClass = (req, res) => {
                         );
                         results.push({
                             ...classItem,
-                            quantity: numStudent ?.numberOfStudents || 0,   
+                            quantity: numStudent?.numberOfStudents || 0,   
                         });
                     });
                     // console.log(results);
