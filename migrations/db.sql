@@ -46,3 +46,6 @@ INSERT INTO `classesDB`.`classes` (`classcode`, `classname`) VALUES ('BDM', 'Bor
 INSERT INTO `classesDB`.`classes` (`classcode`, `classname`) VALUES ('PSG', 'Paris Saint Germain');
 INSERT INTO `classesDB`.`classes` (`classcode`, `classname`) VALUES ('LIVFC', 'Liverpool');
 INSERT INTO `classesDB`.`classes` (`classcode`, `classname`) VALUES ('CHEL', 'Chelsea');
+
+INSERT INTO `classesDB`.`classes` (`id`, `classcode`, `classname`) VALUES ('3', 'RM', 'Real Madrid');
+INSERT INTO `classesDB`.`classes` (`id`, `classcode`, `classname`) VALUES ('4', 'MU', 'Manchester United');
