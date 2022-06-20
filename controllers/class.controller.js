@@ -9,17 +9,26 @@ classController.showClass = (req, res) => {
         connectDB.query('SELECT * FROM classes', (err, classData) => {
             if (err) throw err;
             connectDB.query(
-                'SELECT class_id, COUNT(id) AS numberofstudents FROM students GROUP BY class_id',
+                'SELECT class_id, COUNT(id) AS numberOfStudents FROM students GROUP BY class_id',
                 (err, numStudents) => {
                     if (err) throw err;
                     const results = [];
-                    classData.forEach((element, i) => {
-                        itemClassData = numStudents[i].numberofstudents;
-                        newItemData = {
-                            ...classData[i],
-                            quantity: itemClassData,
-                        };
-                        results.push(newItemData);
+                    // classData.forEach((element, i) => {
+                    //     let itemClassData = numStudents[i].numberofstudents;
+                    //     let    newItemData = {
+                    //         ...classData[i],
+                    //         quantity: itemClassData,
+                    //     };
+                    //     results.push(newItemData);
+                    // });
+                    classData.forEach((classItem) => {
+                        const numStudent = numStudents.find(
+                            (item) => item.class_id === classItem.id,
+                        );
+                        results.push({
+                            ...classItem,
+                            quantity: numStudent ?.numberOfStudents || 0,   
+                        });
                     });
                     // console.log(results);
                     res.render('pages/classes', {
