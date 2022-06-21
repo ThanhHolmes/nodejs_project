@@ -7,7 +7,7 @@ router.post('/student/add_newstudent', studentValidate.addData,  studentControll
 
 router.get('/student/:id/edit-student', studentController.editStudent);
 
-router.post('/student/:id/update-student', studentController.updateStudent);
+router.post('/student/:id/update-student', studentValidate.updateStudent, studentController.updateStudent);
 
 router.get('/student/:id/delete-student', studentController.deleteStudent);
 
