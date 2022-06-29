@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { json } = require('express');
 const connectDB = require('../utils/connectdb');
+
 const classController = {};
 
 // Show Class List

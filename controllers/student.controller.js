@@ -6,8 +6,9 @@ const studentController = {};
 studentController.addData = (req, res) => {
     const data = req.body;
     try {
-        connectDB.query('INSERT INTO students SET ?', [data], (err) => {
+        connectDB.query('INSERT INTO students SET ?',[data], (err) => {
             if (err) throw err;
+            // console.log(data);
         });
         res.redirect(`/classes/${data.class_id}/students`);
     } catch (error) {

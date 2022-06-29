@@ -49,3 +49,9 @@ INSERT INTO `classesDB`.`classes` (`classcode`, `classname`) VALUES ('CHEL', 'Ch
 
 INSERT INTO `classesDB`.`classes` (`id`, `classcode`, `classname`) VALUES ('3', 'RM', 'Real Madrid');
 INSERT INTO `classesDB`.`classes` (`id`, `classcode`, `classname`) VALUES ('4', 'MU', 'Manchester United');
+
+CREATE TABLE users (
+    user_name VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255)
+);    
